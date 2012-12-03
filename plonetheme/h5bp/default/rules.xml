@@ -45,6 +45,11 @@
   <!-- Title -->
   <replace css:theme="title" css:content="title" />
 
+  <after css:theme="head link">
+      <link href="/++theme++h5bp_responsive/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+      <link href="/++theme++h5bp_responsive/apple-touch-icon.png" rel="apple-touch-icon"/>
+  </after>
+
   <!-- Scripts -->
   <after css:theme-children="head" css:content="head script"/>
 
