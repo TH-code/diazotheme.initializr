@@ -20,9 +20,18 @@
 <!--[if gt IE 9]><!-->
   </before>
 
-  <before css:theme-children="html">
-<!--<![endif]-->
-  </before>
+    <!-- The conditional comments outside of the html tag get stripped by diazo 
+         The above statement puts them back so the commenting works.
+         
+         If you want to put it around an html tag that doesn't have the 
+         comments yet, then uncomment the before tag below. -->
+    <!--
+      <before css:theme-children="html">
+    -->
+    <!--<![endif]-->
+    <!--
+      </before>
+    -->
 
   <!-- Attributes -->
   <copy attributes="lang" css:theme="html" css:content="html"/>
@@ -36,22 +45,36 @@
   <!-- Title -->
   <replace css:theme="title" css:content="title" />
 
-  <!-- Links -->
-  <!-- Make sure none of the non standard plone stylesheets get roled in 
-       together with the standard ones in portal_css -->
-  <before css:theme="head link" css:content="head link"/>
-
-  <!-- Style -->
-  <after css:theme="head link" css:content="head style"/>
-
   <!-- Scripts -->
-  <after css:theme="head link" css:content="head script"/>
+  <after css:theme-children="head" css:content="head script"/>
 
   <!-- Body rules
        ================================================================== -->
   <!-- Attributes -->
   <copy attributes="*" css:theme="body" css:content="body"/>
-  <drop css:theme="body script" />
   <replace css:theme="body > p" css:content-children="body" />
+
+  <!-- Drop GA script in theme, comes from site setup -->
+  <drop css:theme="body script:last-child"/>
+  <after css:theme="body script:last-child" 
+         css:content="#visual-portal-wrapper > script"/>
+
+  <!-- Remove edit fixtures -->
+  <drop css:content=".actionMenuContent"/>
+  <drop css:content="#edit-bar"/>
+  <drop css:content="#plone-lock-status"/>
+  <strip css:content=".documentEditable"/>
+  <drop css:content=".documentAuthor"/>
+  <drop css:content=".documentModified"/>
+  <drop css:content=".contentHistory"/>
+  <drop css:content=".portletRecent"/>
+  <drop css:content=".managePortletsLink"/>
+  <replace css:content="#portal-personaltools-wrapper dl">
+    <ul class="actionMenu deactivated" id="portal-personaltools">
+      <li id="anon-personalbar">
+        <xsl:apply-templates css:select="#user-name"/>  
+      </li>
+    </ul>
+  </replace>
 
 </rules>

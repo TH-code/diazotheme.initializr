@@ -181,4 +181,22 @@
   <drop css:theme="body script:last-child"/>
   <after css:theme="body script:last-child" css:content="#visual-portal-wrapper > script"/>
     
+  <!-- Remove edit fixtures -->
+  <drop css:content=".actionMenuContent"/>
+  <drop css:content="#edit-bar"/>
+  <drop css:content="#plone-lock-status"/>
+  <strip css:content=".documentEditable"/>
+  <drop css:content=".documentAuthor"/>
+  <drop css:content=".documentModified"/>
+  <drop css:content=".contentHistory"/>
+  <drop css:content=".portletRecent"/>
+  <drop css:content=".managePortletsLink"/>
+  <replace css:content="#portal-personaltools-wrapper dl">
+    <ul class="actionMenu deactivated" id="portal-personaltools">
+      <li id="anon-personalbar">
+        <xsl:apply-templates css:select="#user-name"/>  
+      </li>
+    </ul>
+  </replace>
+
 </rules>
