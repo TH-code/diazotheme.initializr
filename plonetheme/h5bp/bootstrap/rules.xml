@@ -69,7 +69,8 @@
        .................................................................. -->
   <copy attributes="*" css:theme=".brand" css:content="#portal-logo"/>
   <copy css:theme=".brand">
-      <img src="/++theme++bootstrap/img/plone/logo/white/plone-logo-16.png" />
+      <img width="61" height="16" alt="Plone" 
+           src="/++theme++bootstrap/img/plone/logo/white/plone-logo-16.png" />
   </copy>
   
   <copy attributes="*" css:theme=".navbar-search" css:content="#portal-searchbox form"/>
@@ -92,7 +93,8 @@
   <!-- Header & lead -->
   <rules if-content="//body[contains(@class, 'section-')] and not(//*[@id='breadcrumbs-1'])">
       <before css:theme=".hero-unit h1">
-          <img src="/++theme++h5bp_bootstrap/img/plone-icon-128.png" class="pull-right big-icon"/>
+          <img width="128" height="128" alt="Plone" class="pull-right big-icon"
+               src="/++theme++h5bp_bootstrap/img/plone-icon-128.png"/>
       </before>
       <replace css:theme=".hero-unit h1" css:content="h1.documentFirstHeading" method="raw"/>
       <replace css:theme=".hero-unit h1 + p" css:content=".documentDescription" method="raw"/>
@@ -252,6 +254,9 @@
                   <xsl:attribute name="class">media-object</xsl:attribute>
                   <xsl:attribute name="src">
                       <xsl:value-of select="./a/div/img/@src"/>
+                  </xsl:attribute>
+                  <xsl:attribute name="alt">
+                      <xsl:value-of select="./a/div/img/@alt"/>
                   </xsl:attribute>
               </img>
           </a>
@@ -423,17 +428,25 @@
 
   <!-- Footer -->
   <copy css:theme="footer">
-      <small class="clearfix">
-          <xsl:apply-templates css:select="#portal-footer"/>
-          <p class="pull-left"><xsl:apply-templates css:select="#portal-colophon a"/></p>
-          <p class="pull-right siteactions">
-              <xsl:for-each select="//*[@id='portal-siteactions']//a">
-                  <xsl:apply-templates select="."/>
-              </xsl:for-each>
+      <div class="clearfix">
+          <p>
+              <small>
+                  <xsl:apply-templates css:select="#portal-footer > p"/>
+              </small>
           </p>
-          
-      </small>
+          <small>
+              <span class="pull-left"><xsl:apply-templates css:select="#portal-colophon a"/></span>
+          </small>
+          <small>
+              <span class="pull-right siteactions">
+                  <xsl:for-each select="//*[@id='portal-siteactions']//a">
+                      <xsl:apply-templates select="."/>
+                  </xsl:for-each>
+              </span>
+          </small>
+      </div>
   </copy> 
+  <strip css:content="#portal-footer > p"/>
   
   <copy attributes="*" css:theme=".footer .brand" css:content="#portal-colophon a"/>
   <copy css:theme=".footer .brand" css:content-children="#portal-colophon a"/>
