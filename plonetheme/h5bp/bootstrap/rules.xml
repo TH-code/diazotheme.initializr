@@ -39,8 +39,8 @@
 
   <!-- Style -->
   <after css:theme-children="head">
-      <link href="/++theme++h5bp_responsive/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
-      <link href="/++theme++h5bp_responsive/apple-touch-icon.png" rel="apple-touch-icon"/>
+      <link href="/++theme++h5bp/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+      <link href="/++theme++h5bp/apple-touch-icon.png" rel="apple-touch-icon"/>
       <style>
           .brand img { padding-bottom: 3px; opacity: .7; }
           .brand:hover img { padding-bottom: 3px; opacity: 1; }
@@ -158,7 +158,7 @@
               <button>
                   <xsl:choose>
                       <xsl:when css:test=".searchButton, .context">
-                          <xsl:attribute name="class">btn  btn-primary</xsl:attribute>
+                          <xsl:attribute name="class">btn btn-primary</xsl:attribute>
                       </xsl:when>
                       <xsl:when css:test=".delete">
                           <xsl:attribute name="class">btn btn-danger</xsl:attribute>
