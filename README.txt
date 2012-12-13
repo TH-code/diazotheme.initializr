@@ -2,5 +2,9 @@ Introduction
 ============
 
 
+To apply any of these themes, in site setup:
+  - Install "Diazo theme support" under Add-on
+  - Select "Sunburst Theme" as Default themes under Themes
 
-This product may contain traces of nuts.
+    To apply the ..., in site setup:
+    - Enable "... (...)" under Diazo themes
