@@ -10,13 +10,13 @@ version = '1.0'
 long_description = (
     read('README.txt')
     + '\n' +
-    read('plonetheme', 'h5bp', 'README.txt')
+    read('diazotheme', 'h5bp', 'README.txt')
     + '\n' +
     read('CHANGES.txt')
     + '\n'
     )
 
-setup(name='plonetheme.h5bp',
+setup(name='diazotheme.h5bp',
       version=version,
       description="Diazo Theme with defaults HTML5 Boilerplate",
       long_description=long_description,
@@ -34,7 +34,7 @@ setup(name='plonetheme.h5bp',
       url='https://github.com/TH-code',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['plonetheme'],
+      namespace_packages=['diazotheme'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
