@@ -10,13 +10,13 @@ version = '1.0'
 long_description = (
     read('README.txt')
     + '\n' +
-    read('diazotheme', 'h5bp', 'README.txt')
+    read('diazotheme', 'initializr', 'README.txt')
     + '\n' +
     read('CHANGES.txt')
     + '\n'
     )
 
-setup(name='diazotheme.h5bp',
+setup(name='diazotheme.initializr',
       version=version,
       description="Diazo Theme with defaults HTML5 Boilerplate",
       long_description=long_description,
