@@ -7,7 +7,7 @@
 
   <five:registerPackage package="." />
 
-  <plone:static directory="default" name="initializr" type="theme" />
+  <plone:static directory="h5bp" name="initializr_h5bp" type="theme" />
   <plone:static directory="responsive" name="initializr_responsive" type="theme" />
   <plone:static directory="bootstrap" name="initializr_bootstrap" type="theme" />
 
